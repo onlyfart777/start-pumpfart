@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./App.css";
-import logo from "./assets/logo.png";
+import logo from "./assets/logo.svg";
 import jupiterLogo from "./assets/jupiter.svg";
 import raydiumLogo from "./assets/raydium.svg";
 import discordLogo from "./assets/discord.svg";
