@@ -216,7 +216,7 @@ const App = () => {
 
         {/* > WE'RE LAUNCHING ON */}
 <div className="exchange-section">
-  <div className="section-title">&gt; WE'RE LAUNCHING ON</div>
+  <div className="section-title">&gt; LAUNCHING ON</div>
   <div className="cards-row">
     <div className="exchange-card">
       <div className="icon-svg">
@@ -247,7 +247,7 @@ const App = () => {
 
         {/* Community & Partners */}
 <div className="exchange-section">
-  <div className="section-title">&gt; COMMUNITY &amp; PARTNERS</div>
+  <div className="section-title">&gt; COMMUNITY</div>
   <div className="cards-row">
     <div className="exchange-card">
       <div className="icon-svg">
