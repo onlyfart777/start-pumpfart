@@ -255,7 +255,7 @@ const App = () => {
       </div>
       <div className="name">Discord</div>
       <div className="action">
-        <a className="trade-btn" href="#" target="_blank" rel="noopener noreferrer">
+        <a className="trade-btn" href="https://discord.gg/ryBQGDQ86Z" target="_blank" rel="noopener noreferrer">
           Join <span className="arrow">↗</span>
         </a>
       </div>
