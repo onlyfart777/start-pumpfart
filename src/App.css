@@ -71,7 +71,7 @@ html, body, #root {
   width: 80px;
   height: 80px;
   object-fit: contain;
-  filter: drop-shadow(0 0 16px #fff);
+  filter: drop-shadow(0 0 5px #fff);
 }
 .wordmark {
   font-size: 2rem;
