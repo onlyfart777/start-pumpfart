@@ -1,38 +1,446 @@
-.App {
-  text-align: center;
+/* global reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body, #root {
+  height: 100%;
+  background: #000;
+  font-family: "Source Code Pro", Consolas, monospace;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
+  position: relative;
   min-height: 100vh;
+  overflow: hidden;
+}
+
+/* floating terminal-style words */
+.floater {
+  position: fixed;
+  pointer-events: none;
+  color: #fff;
+  font-weight: 350;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  mix-blend-mode: screen;
+  font-size: 8px;
+  opacity: 0.05;
+}
+
+.floater.glow {
+  opacity: 1 !important;
+  text-shadow: 0 0 18px #fff, 0 0 28px #fff;
+}
+
+/* main content overlay */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 22px 28px 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* top bar */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 16px;
+}
+
+/* logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.logo-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px #fff);
+}
+.wordmark {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 22px #fff, 0 0 32px #fff;
+}
+
+/* contract box */
+.contract-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.03);
+  padding: 14px 22px;
+  border: 2px dashed rgba(255,255,255,0.65);
+  border-radius: 14px;
+  font-size: 0.65rem;
+  min-width: 250px;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 30px rgba(255,255,255,0.35);
+}
+.contract-box .label {
+  margin-right: 4px;
+  opacity: 0.85;
+  font-weight: 600;
+}
+.contract-box .addr {
+  font-family: monospace;
+  background: rgba(255,255,255,0.05);
+  padding: 6px 12px;
+  border-radius: 6px;
+  letter-spacing: 0.6px;
+  margin-right: 8px;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.copy-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .2s;
+  color: #fff;
+}
+.copy-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* main card */
+.main-card {
+  margin-top: 10px;
+  padding: 30px 26px;
+  border: 2px dashed rgba(255,255,255,0.65);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: 0 0 50px rgba(255,255,255,0.2);
+}
+
+/* headline & subline */
+.headline {
+  font-size: 1.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.prompt {
+  margin-right: 6px;
+  opacity: 0.8;
+  font-family: monospace;
+}
+.cursor {
+  width: 6px;
+  height: 32px;
+  background: #fff;
+  margin-left: 6px;
+  animation: blink 1s step-end infinite;
+  border-radius: 2px;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.subline {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-left: 4px;
+  font-family: monospace;
+}
+
+/* countdown */
+.countdown-box {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.countdown-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.85;
+}
+.countdown-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+/* quote */
+.quote-box {
+  margin: 4px 0 12px;
+  padding: 16px 18px;
+  border: 2px dotted rgba(255,255,255,0.7);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+}
+.quote {
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+.quote .small {
+  font-size: 0.6rem;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+/* metrics */
+.metrics {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.metric {
+  flex: 1 1 180px;
+  border: 2px dashed rgba(255,255,255,0.65);
+  padding: 16px 14px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.metric .label {
+  font-size: 0.65rem;
+  opacity: 0.85;
+  letter-spacing: 0.8px;
+  font-family: monospace;
+}
+.metric .value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+/* Available On / Community sections */
+.exchange-section {
+  margin-top: 40px;
+  padding: 26px 22px;
+  border: 2px dashed rgba(255,255,255,0.65);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.55);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 0 40px rgba(255,255,255,0.15);
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 16px #fff;
+  margin-bottom: 4px;
+}
+.cards-row {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.exchange-card {
+  flex: 1 1 260px;
+  background: rgba(255,255,255,0.03);
+  border: 2px dashed rgba(255,255,255,0.65);
+  border-radius: 12px;
+  padding: 22px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 14px;
+  position: relative;
+}
+.icon-svg {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.inline-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px #fff);
+}
+.name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.action .trade-btn,
+.trade-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-decoration: none;
+}
+.action .trade-btn:hover,
+.trade-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
+.arrow {
+  font-size: 1rem;
+}
+.subnote {
+  font-size: 0.85rem;
+  margin-top: 6px;
+  opacity: 0.85;
 }
 
-.App-link {
-  color: #61dafb;
+/* fart trigger area */
+.fart-button-wrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.hint {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  opacity: 0.75;
+}
+.key {
+  background: rgba(255,255,255,0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  margin: 0 4px;
+  font-family: monospace;
+}
+.fart-button {
+  background: rgba(255,255,255,0.04);
+  padding: 14px 30px;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+}
+.key-box {
+  background: rgba(255,255,255,0.12);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: monospace;
 }
 
-@keyframes App-logo-spin {
+/* toast */
+.toast {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: rgba(20,20,20,0.95);
+  border: 1px solid #fff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  box-shadow: 0 0 28px rgba(255,255,255,0.5);
+  z-index: 10;
+  animation: pop 0.35s ease-out;
+}
+@keyframes pop {
   from {
-    transform: rotate(0deg);
+    transform: scale(0.8);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* footer */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 14px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.disclaimer {
+  font-size: 0.65rem;
+  opacity: 0.7;
+  line-height: 1.2;
+  white-space: normal;
+  max-width: 800px;
+  margin: 0 auto;
+  letter-spacing: 0.5px;
+}
+.tiny {
+  font-size: 0.55rem;
+  opacity: 0.55;
+  letter-spacing: 0.8px;
+}
+
+
+/* responsive adjustments */
+@media (max-width: 1100px) {
+  .main-card {
+    padding: 24px 18px;
+  }
+  .headline {
+    font-size: 1.5rem;
+  }
+  .metrics {
+    flex-direction: column;
+  }
+  .cards-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contract-box {
+    width: 100%;
+  }
+  .fart-button-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .fart-button {
+    width: 100%;
+    justify-content: center;
+  }
+  .hint {
+    margin-bottom: 8px;
   }
 }
