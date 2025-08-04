@@ -185,7 +185,7 @@ const App = () => {
             <span className="cursor" />
           </div>
           <div className="subline">
-            &gt; OnlyFart – Blowing up Web3, one fart at a time
+            &gt; Blowing up Web3, one fart at a time
           </div>
 
           <div className="countdown-box">
@@ -195,7 +195,7 @@ const App = () => {
 
           <div className="quote-box">
             <div className="quote">
-              "Pump loud, Fart proud"
+              "OF = OnlyFart"
               <div className="small">
                 Based on OnlyFart: <strong>truth terminal</strong>
               </div>
