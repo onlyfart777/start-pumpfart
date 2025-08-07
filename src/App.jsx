@@ -13,7 +13,7 @@ import fart4 from "./assets/fart4.wav";
 import fart5 from "./assets/fart5.wav";
 
 
-const CONTRACT_ADDRESS = "5G5VVv7dSMmwM6ehvwAhSX6EStpA8zo1mxAqhKSp2Got";
+const CONTRACT_ADDRESS = "GTvE78Jk2kTr9A7TpgkfePmTM7GLvdu7YyiQnXTbEr63";
 const floatingWords = [
   "PRESS  F  TO  FART",
   "START FART",
@@ -69,7 +69,7 @@ const App = () => {
   const [bgLines, setBgLines] = useState(
     () => Array.from({ length: 30 }, () => randomBinaryLine())
   );
-  const [headline, setHeadline] = useState("INITIALIZING PUMPFART");
+  const [headline, setHeadline] = useState("INITIALIZING PUMP FART");
   const [secret, setSecret] = useState("");
   const [countdown, setCountdown] = useState(() => formatCountdown(TARGET_DATE - new Date()));
   const [floaters, setFloaters] = useState(() =>
@@ -196,9 +196,6 @@ const App = () => {
           <div className="quote-box">
             <div className="quote">
               "OF = OnlyFart"
-              <div className="small">
-                Based on OnlyFart: <strong>truth terminal</strong>
-              </div>
             </div>
           </div>
 
