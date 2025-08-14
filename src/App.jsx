@@ -13,7 +13,7 @@ import fart4 from "./assets/fart4.wav";
 import fart5 from "./assets/fart5.wav";
 
 
-const CONTRACT_ADDRESS = "GTvE78Jk2kTr9A7TpgkfePmTM7GLvdu7YyiQnXTbEr63";
+const CONTRACT_ADDRESS = "BdPz9uXFfPgo8WD6M3qoZTFEAfUwhMyVrdF3jUwsYVTg";
 const floatingWords = [
   "PRESS  F  TO  FART",
   "START FART",
@@ -69,7 +69,7 @@ const App = () => {
   const [bgLines, setBgLines] = useState(
     () => Array.from({ length: 30 }, () => randomBinaryLine())
   );
-  const [headline, setHeadline] = useState("INITIALIZING PUMP FART");
+  const [headline, setHeadline] = useState("INITIALIZING PUMPF");
   const [secret, setSecret] = useState("");
   const [countdown, setCountdown] = useState(() => formatCountdown(TARGET_DATE - new Date()));
   const [floaters, setFloaters] = useState(() =>
@@ -167,7 +167,7 @@ const App = () => {
         <header className="topbar">
           <div className="logo" onClick={onLogoClick}>
             <img src={logo} alt="Pump.fart logo" className="logo-img" />
-            <div className="wordmark">Pump.fart</div>
+            <div className="wordmark">Pump.Fart</div>
           </div>
           <div className="contract-box">
             <div className="label">Contract:</div>
@@ -201,62 +201,31 @@ const App = () => {
 
           <div className="metrics">
             <div className="metric">
-              <div className="label">{">"} Market Cap:</div>
-              <div className="value">Coming soon</div>
+              <div className="label">{">"} CIRCULATING SUPPLY:</div>
+              <div className="value">998.84M</div>
             </div>
             <div className="metric">
-              <div className="label">{">"} Current Price:</div>
+              <div className="label">{">"} MARKET CAP:</div>
               <div className="value">Coming soon</div>
             </div>
           </div>
         </div>
 
-        {/* > WE'RE LAUNCHING ON */}
-<div className="exchange-section">
-  <div className="section-title">&gt; LAUNCHING ON</div>
-  <div className="cards-row">
-    <div className="exchange-card">
-      <div className="icon-svg">
-        <img src={jupiterLogo} alt="Jupiter" className="inline-logo" />
-      </div>
-      <div className="name">Jupiter</div>
-      <div className="action">
-        <a className="trade-btn" href="#" target="_blank" rel="noopener noreferrer">
-          Trade Now <span className="arrow">↗</span>
-        </a>
-      </div>
-    </div>
-    <div className="exchange-card">
-      <div className="icon-svg">
-        <img src={raydiumLogo} alt="Raydium" className="inline-logo" />
-      </div>
-      <div className="name">Raydium</div>
-      <div className="action">
-        <a className="trade-btn" href="#" target="_blank" rel="noopener noreferrer">
-          Trade Now <span className="arrow">↗</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div className="subnote">&gt; More integrations coming soon. Stay tuned.</div>
-</div>
+        {/* > ABOUT PUMPF */}
+        <div className="exchange-section">
+          <div className="section-title">&gt; ABOUT PUMPF</div>
+          <div className="about-text">
+            $PUMPF is a community-driven meme coin on the Solana Blockchain. It has no association with Pump.fun.
+            Pump.fart is not a suppository but literally a farting pill. This meme coin carries no intrinsic value or expectation of financial return. Trade Less. Fart More.
+          </div>
+        </div>
 
 
         {/* Community & Partners */}
 <div className="exchange-section">
   <div className="section-title">&gt; COMMUNITY</div>
   <div className="cards-row">
-    <div className="exchange-card">
-      <div className="icon-svg">
-        <img src={discordLogo} alt="Discord" className="inline-logo" />
-      </div>
-      <div className="name">Discord</div>
-      <div className="action">
-        <a className="trade-btn" href="https://discord.gg/ryBQGDQ86Z" target="_blank" rel="noopener noreferrer">
-          Join <span className="arrow">↗</span>
-        </a>
-      </div>
-    </div>
+    
 
     <div className="exchange-card">
       <div className="icon-svg">
@@ -329,7 +298,7 @@ const App = () => {
     &gt; This token exists purely for entertainment purposes.
   </div>
   <div className="tiny">
-    © 2025 Pumpfart. All rights reserved.
+    © 2025 Pump.Fart. All rights reserved.
   </div>
 </footer>
 
