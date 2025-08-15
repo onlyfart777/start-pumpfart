@@ -41,7 +41,7 @@ const randomBinaryLine = (length = 80) => {
   return s;
 };
 
-const TARGET_DATE = new Date(Date.UTC(2025, 7, 23, 14, 0, 0));
+const TARGET_DATE = new Date(Date.UTC(2025, 7, 30, 14, 0, 0));
 const formatCountdown = (diffMs) => {
   if (diffMs <= 0) return "00d 00h 00m 00s";
   const totalSec = Math.floor(diffMs / 1000);
